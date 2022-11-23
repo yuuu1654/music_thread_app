@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: MemberRepository::class)]
 class Member
 {
-    #[ORM\Id] //IDのフィールドであることを示すaaa
+    #[ORM\Id] //IDのフィールドであることを示す hogehoge
     #[ORM\GeneratedValue] //値が自動生成されることを示す
     #[ORM\Column] // プロパティがテーブルに用意されているフィールドに対応するものであることを示す
     private ?int $id = null;
