@@ -1,3 +1,7 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+
+# member_list:
+#     path: /member
+#     controller: App\Controller\MemberController::index
