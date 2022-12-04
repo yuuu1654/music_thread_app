@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Member;
+// use App\Controller\ManagerRegistry; 
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -42,11 +44,15 @@ class MemberController extends AbstractController
 
     // メンバー一覧を表示
     #[Route('/members', name: 'member_list')]
-    public function index(Request $request): Response
+    public function index(Request $request, ManagerRegistry $doctrine): Response
     {
-        $repository = $this->getDoctrine()->getRepository(Member::class);
+        // $repository = $this->getDoctrine()->getRepository(Member::class); Symfony4系の書き方(getDoctrine()動かない)
+        $repository = $doctrine->getRepository(Member::class);
+        $data = $repository->findAll();
         return $this->render("member/index.html.twig", [
-            "controller_name" => "MemberController",
+            "page" => "Member一覧ページ",
+            "title" => "ho",
+            "data" => $data,
         ]);
     }
 }

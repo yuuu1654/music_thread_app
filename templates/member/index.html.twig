@@ -1,20 +1,53 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MemberController!{% endblock %}
+{% block page %}{{page}}{% endblock %}
+{% block title %}{{title}}{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<h2>Member table</h2>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name_sei</th>
+        <th>name_mei</th>
+        <th>gender</th>
+        <th>pref_name</th>
+        <th>address</th>
+        <th>password</th>
+        <th>email</th>
+        <th>created</th>
+        <th>updated</th>
+    </tr>
+    {% for item in data %} 
+    {# <tr>
+        <td>{{ item.id }}</td>
+        <td>{{ item.name_sei }}</td>
+        <td>{{ item.name_mei }}</td>
+        <td>{{ item.gender }}</td>
+        <td>{{ item.pref_name }}</td>
+        <td>{{ item.address }}</td>
+        <td>{{ item.password }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.created }}</td>
+        <td>{{ item.updated }}</td>
+        {{ dump(item) }}
+    </tr> #}
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/morishitayuuki/Desktop/symfony_thread_app/thread_app/src/Controller/MemberController.php'|file_link(0) }}">src/Controller/MemberController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/morishitayuuki/Desktop/symfony_thread_app/thread_app/templates/member/index.html.twig'|file_link(0) }}">templates/member/index.html.twig</a></code></li>
-    </ul>
-</div>
+    <tr>
+        <td>{{ item.getId() }}</td>
+        <td>{{ item.getNameSei() }}</td>
+        <td>{{ item.getNameMei() }}</td>
+        <td>{{ item.getGender() }}</td>
+        <td>{{ item.getPrefName() }}</td>
+        <td>{{ item.getAddress() }}</td>
+        <td>{{ item.getPassword() }}</td>
+        <td>{{ item.getEmail() }}</td>
+        {# <td>{{ item.getCreated() }}</td>
+        <td>{{ item.getUpdated() }}</td> #}
+        {{ dump(item) }}
+    </tr>
+    {% endfor %}
+</table>
+
 {% endblock %}
